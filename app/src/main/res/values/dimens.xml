@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_margin_hor">16sp</dimen>
+    <dimen name="activity_margin_ver">16sp</dimen>
+    <dimen name="movie_title_padding">10sp</dimen>
+    <dimen name="movie_title">15sp</dimen>
+    <dimen name="movie_cover_height">200sp</dimen>
+    <dimen name="card_movie_radius">0sp</dimen>
+    <dimen name="card_margin">5sp</dimen>
+    <dimen name="user_ratting_padding_bottom">5sp</dimen>
+    <dimen name="user_ratting_padding_side">5sp</dimen>
+    <dimen name="user_rating">12sp</dimen>
+    <dimen name="detail_backdrop_height">600sp</dimen>
+    <dimen name="layout_margin_left">10sp</dimen>
+    <dimen name="layout_margin_top">5sp</dimen>
+    <dimen name="layout_margin_top2">10sp</dimen>
+    <dimen name="padding_layout">10sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+</resources>
