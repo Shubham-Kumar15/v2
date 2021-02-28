@@ -9,27 +9,24 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mvvm1.Models.ProductionCOMPANY
+import com.example.mvvm1.models.ProductionCOMPANY
 import com.example.mvvm1.R
 import com.example.mvvm1.TMDB
+import com.example.mvvm1.databinding.CompanyRowBinding
+
 class Adapter6(val context:Context, var list:List<ProductionCOMPANY>) :RecyclerView.Adapter<Adapter6.MyViewModel>(){
-    class MyViewModel(val view: View):RecyclerView.ViewHolder(view){
-        val castImage:ImageView=view.findViewById(R.id.mainImageView)
-        val castName:TextView=view.findViewById(R.id.mainTextView)
-    }
+    class MyViewModel(val binding: CompanyRowBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewModel {
-        val view:View=LayoutInflater.from(context).inflate(R.layout.company_row,parent,false)
-
-        return MyViewModel(view)
+        val binding:CompanyRowBinding=
+            CompanyRowBinding.inflate(LayoutInflater.from(context),parent,false)
+        return MyViewModel(binding)
     }
 
     override fun onBindViewHolder(holder: MyViewModel, position: Int) {
         val p:ProductionCOMPANY=list[position]
-        holder.castName.text=p.name
-        val a:String= TMDB.baseImage+p.logo_path
-        Log.e("Production Image",a)
-        Glide.with(context).load(a).into(holder.castImage)
+        holder.binding.production=p
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount(): Int = list.size

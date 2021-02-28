@@ -9,15 +9,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.Response
 import com.bumptech.glide.Glide
 import com.example.mvvm1.Adapter.Adapter3
-import com.example.mvvm1.Models.Client
-import com.example.mvvm1.Models.VolleyReqTV
-import com.example.mvvm1.Models.episode
-import com.example.mvvm1.ViewModel.SeriesDetailViewModel
+import com.example.mvvm1.models.episode
+import com.example.mvvm1.viewmodel.SeriesDetailViewModel
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class SeriesDetailActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {

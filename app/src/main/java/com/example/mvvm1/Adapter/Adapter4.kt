@@ -7,25 +7,23 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mvvm1.Models.Poster
+import com.example.mvvm1.models.Poster
 import com.example.mvvm1.R
 import com.example.mvvm1.TMDB
+import com.example.mvvm1.databinding.HorImgBinding
 
 //import com.example.mvvm1.Models.
 class Adapter4(val context: Context, var list:ArrayList<Poster>):RecyclerView.Adapter<Adapter4.MyViewHolder>() {
-    class MyViewHolder(var view:View):RecyclerView.ViewHolder(view){
-        val imageView:ImageView=view.findViewById(R.id.horImgView)
-    }
+    class MyViewHolder(var binding: HorImgBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view=LayoutInflater.from(context).inflate(R.layout.hor_img,parent,false)
+        val view=
+            HorImgBinding.inflate(LayoutInflater.from(context),parent,false)
         return MyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val p:Poster=list.get(position)
-        val a:String= TMDB.baseImage+p.file_path
-        Glide.with(context).load(a).centerCrop().into(holder.imageView)
+        holder.binding.poster=list[position]
     }
 
     override fun getItemCount(): Int=list.size

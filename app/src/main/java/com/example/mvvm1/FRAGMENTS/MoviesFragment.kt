@@ -11,11 +11,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvm1.Adapter.Adapter1
-import com.example.mvvm1.Models.Movies
+import com.example.mvvm1.models.Movies
 import com.example.mvvm1.MoviesDetailActivity
 import com.example.mvvm1.R
 import com.example.mvvm1.TMDB
-import com.example.mvvm1.ViewModel.MoviesViewModel
+import com.example.mvvm1.viewmodel.MoviesViewModel
 
 class MoviesFragment : Fragment(), Adapter1.ClickHandler {
 

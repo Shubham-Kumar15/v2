@@ -1,4 +1,4 @@
-package com.example.mvvm1.Models
+package com.example.mvvm1.models
 
 class Movies(
         var poster_path: String,
@@ -71,16 +71,6 @@ data class MoviesDetail(val budget:Int,
                         val title:String,
                         val production_companies:List<ProductionCOMPANY>)
 
-data class People(
-        val adult:Boolean,
-        val gender:Int,
-        val name:String,
-        val character:String,
-        val original_name: String,
-        val id:Int,
-        val cast_id:Int,
-        val profile_path:String//Image of cast
-)
 
 data class CreditResult(
         val id:Int,

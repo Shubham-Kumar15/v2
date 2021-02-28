@@ -7,17 +7,18 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.Request
 import com.example.mvvm1.Adapter.Adapter4
-import com.example.mvvm1.Models.MoviesDetail
-import com.example.mvvm1.Models.People
-import com.example.mvvm1.Models.Poster
-import com.example.mvvm1.Models.ProductionCOMPANY
-import com.example.mvvm1.ViewModel.MoviesDetailViewModel
+import com.example.mvvm1.models.MoviesDetail
+import com.example.mvvm1.models.People
+import com.example.mvvm1.models.Poster
+import com.example.mvvm1.models.ProductionCOMPANY
+import com.example.mvvm1.viewmodel.MoviesDetailViewModel
+import com.example.mvvm1.databinding.ActivityMoviesDetailBinding
 import com.example.tmdb.Adapter.Adapter5
 import com.example.tmdb.Adapter.Adapter6
 
@@ -42,15 +43,20 @@ class MoviesDetailActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var productionRecyclerView: RecyclerView
     lateinit var viewModel:MoviesDetailViewModel
     var md: MoviesDetail?=null
+    lateinit var binding:ActivityMoviesDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movies_detail)
+        //setContentView(R.layout.activity_movies_detail)
+        binding=DataBindingUtil.setContentView(this,R.layout.activity_movies_detail)
+        viewModel= ViewModelProvider(this).get(MoviesDetailViewModel::class.java)
+        binding.viewModel=viewModel
         initilize()
         viewModel.load()
     }
+
     fun initilize(){
-        viewModel= ViewModelProvider(this).get(MoviesDetailViewModel::class.java)
+        //viewModel= ViewModelProvider(this).get(MoviesDetailViewModel::class.java)
         if(viewModel.posters.value==null) posterList= ArrayList<Poster>()
         else posterList=viewModel.posters.value as ArrayList<Poster>
         if(viewModel.casts.value!=null) castList=viewModel.casts.value as ArrayList<People>

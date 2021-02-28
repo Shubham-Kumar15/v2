@@ -1,10 +1,8 @@
-package com.example.mvvm1.Models
+package com.example.mvvm1.models
 
 import android.content.Context
 import com.android.volley.Request
-import com.android.volley.RequestQueue
 import com.android.volley.Response
-import com.example.mvvm1.Adapter.Adapter1
 import com.example.mvvm1.TMDB
 
 class AppRepository (context: Context) {

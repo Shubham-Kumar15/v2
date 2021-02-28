@@ -2,32 +2,23 @@ package com.example.tmdb.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.mvvm1.Models.People
-import com.example.mvvm1.R
-import com.example.mvvm1.TMDB
+import com.example.mvvm1.models.People
+import com.example.mvvm1.databinding.CastRowBinding
+
 class Adapter5(val context:Context, var list:ArrayList<People>) :RecyclerView.Adapter<Adapter5.MyViewModel>(){
-    class MyViewModel(val view: View):RecyclerView.ViewHolder(view){
-        val castImage:ImageView=view.findViewById(R.id.mainImageView)
-        val castName:TextView=view.findViewById(R.id.mainTextView)
-    }
+    class MyViewModel(val binding:CastRowBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewModel {
-        val view:View=LayoutInflater.from(context).inflate(R.layout.cast_row,parent,false)
-
-        return MyViewModel(view)
+        val rootView:CastRowBinding=
+            CastRowBinding.inflate(LayoutInflater.from(context),parent,false)
+        return MyViewModel(rootView)
     }
 
     override fun onBindViewHolder(holder: MyViewModel, position: Int) {
-        val p:People=list[position]
-        holder.castName.text=p.name
-        val a:String= TMDB.baseImage+p.profile_path
-        Glide.with(context).load(a).into(holder.castImage)
+        holder.binding.cast=list[position]
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount(): Int = list.size

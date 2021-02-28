@@ -1,4 +1,4 @@
-package com.example.mvvm1.Models;
+package com.example.mvvm1.models;
 
 import android.content.Context;
 

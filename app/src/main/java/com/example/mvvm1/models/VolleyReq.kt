@@ -1,12 +1,10 @@
-package com.example.mvvm1.Models
+package com.example.mvvm1.models
 
-import android.util.Log
 import com.android.volley.NetworkResponse
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.HttpHeaderParser
-import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import java.nio.charset.Charset
 

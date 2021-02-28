@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="8sp"
-    app:cardCornerRadius="15dp"
-    android:minHeight="5dp"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout
-        android:layout_width="300sp"
-        android:layout_height="450sp"
-        >
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/horImgView"/>
+    <data>
+        <variable
+            name="poster"
+            type="com.example.mvvm1.models.Poster" />
 
-    </LinearLayout>
+    </data>
 
-</androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8sp"
+        app:cardCornerRadius="15dp"
+        android:minHeight="5dp">
+
+        <LinearLayout
+            android:layout_width="300sp"
+            android:layout_height="450sp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:imageURL="@{poster.file_path}"
+                android:id="@+id/horImgView" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

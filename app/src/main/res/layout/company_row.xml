@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="220sp"
-    android:layout_height="220sp"
-    android:layout_marginLeft="10sp">
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="190sp"
-            android:id="@+id/mainImageView"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:text="LOGO"
-            android:id="@+id/mainTextView"/>
-    </LinearLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.cardview.widget.CardView>
+    <data>
+        <variable
+            name="production"
+            type="com.example.mvvm1.models.ProductionCOMPANY" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="220sp"
+        android:layout_height="220sp"
+        android:layout_marginLeft="10sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="190sp"
+                app:imageURL="@{production.logo_path}"
+                android:id="@+id/mainImageView" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:text="@{production.name}"
+                android:id="@+id/mainTextView" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

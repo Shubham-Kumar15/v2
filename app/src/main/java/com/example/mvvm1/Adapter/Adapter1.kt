@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mvvm1.Models.Movies
+import com.example.mvvm1.models.Movies
 import com.example.mvvm1.R
 import com.example.mvvm1.TMDB
 import java.util.*

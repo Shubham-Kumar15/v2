@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
 import com.example.mvvm1.Adapter.Adapter2
-import com.example.mvvm1.Models.Series
+import com.example.mvvm1.models.Series
 import com.example.mvvm1.R
 import com.example.mvvm1.SeriesDetailActivity
 import com.example.mvvm1.TMDB
-import com.example.mvvm1.ViewModel.SeriesViewModel
+import com.example.mvvm1.viewmodel.SeriesViewModel
 
 class SeriesFragment : Fragment(), Adapter2.ClickHandler {
 

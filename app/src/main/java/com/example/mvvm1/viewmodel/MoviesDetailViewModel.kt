@@ -1,20 +1,17 @@
-package com.example.mvvm1.ViewModel
+package com.example.mvvm1.viewmodel
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.android.volley.Request
-import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.VolleyError
-import com.example.mvvm1.Models.*
-import com.example.mvvm1.TMDB
+import com.example.mvvm1.models.*
 
 class MoviesDetailViewModel(val app:Application) : AndroidViewModel(app) , VolleyReqMovieImage.Callback ,
     VolleyReqMovieDetail.Callback,
     Response.ErrorListener, VolleyReqMovieCredit.Callback {
-    val rq: RequestQueue=Client.getRequestQueue(app.applicationContext)
+    //val rq: RequestQueue=Client.getRequestQueue(app.applicationContext)
     val repo:AppRepository=AppRepository(app.applicationContext)
     val md:MutableLiveData<MoviesDetail> = MutableLiveData<MoviesDetail>()
     val posters=MutableLiveData<List<Poster>>()
@@ -34,6 +31,7 @@ class MoviesDetailViewModel(val app:Application) : AndroidViewModel(app) , Volle
     override fun callback(re: MovieImageResponsee) {
         posters.value=re.posters
         //Log.e("Length of result",""+re.posters.size)
+
     }
 
     override fun callback(re: MoviesDetail) {
